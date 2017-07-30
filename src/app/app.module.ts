@@ -1,21 +1,19 @@
-
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
 import { AppComponent } from './app.component';
-import { FormComponent } from './form.component';
-import { ListComponent } from './list.component';
+import { CustomDirective } from './directives/custom.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-    ListComponent
+    CustomDirective
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

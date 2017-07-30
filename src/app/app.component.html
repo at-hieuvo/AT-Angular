@@ -1,5 +1,32 @@
-<!-- <h1>{{hello}} {{name}}</h1>
-<button name='button' (click)="getName()">Name</button>
- -->
-<app-form></app-form>
-<app-list></app-list>
+<div class="row">
+  <div class="col-md-6 ">
+    <h1>List trainers:</h1>
+    <table >
+      <thead>
+        <tr>
+          <th>Name:</th>
+          <th>birthday:</th>
+          <th>team:</th>
+          <th>Avatar:</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trainer of trainers; let id = index" [ngClass]="{Ruby: trainer.team === 'Ruby', FE: trainer.team === 'FE', PHP:trainer.team === 'PHP' }">
+          <td>{{trainer.name}}</td>
+          <td><span [emptyData]="trainer.birthday">{{ trainer.birthday }}</span></td>
+          <td>{{trainer.team}}</td>
+          <td [emptyData]="trainer.avatar"><img src="{{trainer.avatar}}" alt=""></td>
+          <td><button (click)="showDetails(id)" class="btn btn-primary">Detail</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="selectedTrainer" class="col-md-6">
+    <h2>Detail</h2>
+    <span [emptyData]="selectedTrainer.avatar"><img src="{{selectedTrainer.avatar}}" alt="avatar"></span>
+    <p>{{selectedTrainer.name}}</p>
+    <p>Birthday:<span [emptyData]="selectedTrainer.birthday">{{selectedTrainer.birthday}}</span></p>
+  </div>
+</div>
