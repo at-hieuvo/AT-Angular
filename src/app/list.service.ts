@@ -1,34 +1,28 @@
 import { Injectable } from '@angular/core';
+import {Http} from '@angular/http';
+import 'rxjs/add/operator/map'
 
 @Injectable()
-export class listService {
 
-  trainers : any;
+export class ListService{
 
-  constructor() {
-    this.trainers = [
-      {
-        name: 'Vi',
-        avatar: '',
-        birthday: '01/01/1990',
-        team: 'FE'
+  trainers: any;
+
+  constructor(private http: Http){}
+  getItem(i: number){
+    this.getAll().
+    subscribe(
+      data => {
+        this.trainers = data;
       },
-      {
-        name: 'Kien',
-        avatar: '',
-        birthday: '01/01/1992',
-        team: 'Ruby'
-      },
-      {
-        name: 'Hieu',
-        avatar: '',
-        birthday: '10/1/1995',
-        team: 'PHP'
-      }
-    ];
-  }
-
-  getDetail(i: number){
+      err =>
+        console.log("error, error code: %s, URL: %s", err.status, err.url),
+      () => console.log("sucsessful")
+    );
     return this.trainers[i];
+  }
+  getAll(){
+    return this.http.get('./assets/data.json')
+      .map((res) => res.json());
   }
 }

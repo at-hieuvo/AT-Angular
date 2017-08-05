@@ -6,13 +6,13 @@ import { listService } from '../list.service';
 })
 
 export class DetailComponent {
-  @Input() i: number;
-  trainerDetail: any;
+  @Input() trainerDetail: any;
+  //trainerDetail: any;
   constructor(private appService: listService) { }
 
-  ngOnChanges() {
-    setTimeout( () => {
-      this.trainerDetail = this.appService.getDetail(this.i);
-    });
-  }
+  // ngOnChanges() {
+  //   setTimeout( () => {
+  //     this.trainerDetail = this.appService.trainer;
+  //   });
+  // }
 }

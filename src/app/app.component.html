@@ -1,2 +1,2 @@
-<app-list></app-list>
-<app-detail></app-detail>
+<app-list (showEvent)="detail($event)"></app-list>
+<app-detail [trainerDetail]="trainer"></app-detail>

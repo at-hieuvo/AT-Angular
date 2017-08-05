@@ -1,8 +1,7 @@
 <div class="col-md-4" *ngIf="trainerDetail">
-  <img src="{{trainerDetail.avatar}}" alt=''>
-  <h4><strong>{{trainerDetail.name}}</strong></h4>
-  <p [emptyData]="trainerDetail.birthday"
-     [ngClass]="{gray: trainerDetail.birthday == '' }">
-  </p>
-  <span>Team {{trainerDetail.team}}</span>
+ <h3> Image:<img src="{{trainerDetail.avatar | image}}" alt='' style="width: 100px">
+ </h3>
+  <h3>Name:{{trainerDetail.name}}</h3>
+  <h3>Birthday {{trainerDetail.birthday}}</h3>
+  <h3>Team: {{trainerDetail.team}}</h3>
 </div>

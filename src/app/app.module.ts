@@ -7,6 +7,8 @@ import {DefaultImage} from './pipes/image.pipe'
 import {ListComponent} from './list/list.component';
 import {DetailComponent} from './detail/detail.component';
 import {listService} from './list.service';
+import {Http} from "@angular/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import {listService} from './list.service';
     DetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [listService],
   bootstrap: [AppComponent]
